@@ -152,10 +152,10 @@ function CMain(oData) {
   this._loadImages = function () {
     s_oSpriteLibrary.init(this._onImagesLoaded, this._onAllImagesLoaded, this);
 
-    console.log(settings);
-    if (settings && settings.ad_src) {
-      s_oSpriteLibrary.addSprite("banner_ad", settings.ad_src);
-    }
+    // console.log(settings);
+    // if (settings && settings.ad_src) {
+    //   s_oSpriteLibrary.addSprite("banner_ad", settings.ad_src);
+    // }
 
     s_oSpriteLibrary.addSprite("ball", "./sprites/ball.png");
     s_oSpriteLibrary.addSprite("bg_menu", "./sprites/bg_menu3.jpg");
