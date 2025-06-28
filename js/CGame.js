@@ -87,10 +87,10 @@ function CGame(oData) {
     _oBall = new CBall(0, 0, oSpriteBall, _oScene.ballBody(), _oContainerGame);
     _aObjects.push(_oBall);
 
-    if (settings && settings.ad_src) {
-      var _oAdSprite = s_oSpriteLibrary.getSprite("banner_ad");
-      _oAdPanel = new CAdPanel(CANVAS_WIDTH / 2, 120, 700, 180, _oAdSprite, settings.ad_url, _oContainerGame);
-    }
+    // if (settings && settings.ad_src) {
+    //   var _oAdSprite = s_oSpriteLibrary.getSprite("banner_ad");
+    //   _oAdPanel = new CAdPanel(CANVAS_WIDTH / 2, 120, 700, 180, _oAdSprite, settings.ad_url, _oContainerGame);
+    // }
 
     this.ballPosition();
 
