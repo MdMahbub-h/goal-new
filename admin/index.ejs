@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CROSSBAR CHALLENGE ADMIN PANEL</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,minimal-ui" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/css/admin.css" type="text/css" />
+
+    <script type="text/javascript" src="/js/lib/jquery-3.2.1.min.js"></script>
+  </head>
+  <body ondragstart="return false;" ondrop="return false;">
+    <div class="container">
+      <h1 class="title">DiBah Admin Panel</h1>
+
+      <% if (hasMessages) { %>
+      <section class="messages success">
+        <% messages.forEach(function(message) { %>
+        <p><%= message %></p>
+        <% }); %>
+      </section>
+      <% } else if (hasErrors) { %>
+      <section class="messages error">
+        <% errors.forEach(function(error) { %>
+        <p><%= error %></p>
+        <% }); %>
+      </section>
+      <% } %>
+
+      <form method="post" action="/admin/update" enctype="multipart/form-data">
+        <div class="content">
+          <div class="form-row">
+            <div>
+              <label for="stake_min">Stake Min</label>
+              <input type="number" id="stake_min" name="stake_min" value="<%= settings?.stake_min || '' %>" required />
+            </div>
+            <div>
+              <label for="stake_max">Stake Max</label>
+              <input type="number" id="stake_max" name="stake_max" value="<%= settings?.stake_max ||  ''  %>" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="hits_min">Hits Min</label>
+              <input type="number" id="hits_min" name="hits_min" value="<%= settings?.hits_min ||  ''  %>" required />
+            </div>
+            <div>
+              <label for="hits_max">Hits Max</label>
+              <input type="number" id="hits_max" name="hits_max" value="<%= settings?.hits_max ||  ''  %>" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="players_min">Players Min</label>
+              <input type="number" id="players_min" name="players_min" value="<%= settings?.players_min ||  ''  %>" required />
+            </div>
+            <div>
+              <label for="players_max">Players Max</label>
+              <input type="number" id="players_max" name="players_max" value="<%= settings?.players_max ||  ''  %>" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="win_rate">Win Rate</label>
+              <input type="number" id="win_rate" name="win_rate" value="<%= settings?.win_rate ||  ''  %>" required />
+            </div>
+            <div>
+              <label for="lower_value">Bar Lower Value</label>
+              <input type="number" id="lower_value" name="lower_value" value="<%= settings?.lower_value ||  ''  %>" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="ad_image">Ad Image</label>
+              <input type="file" id="ad_image" name="file" accept=".png,.jpg,.jpeg" />
+            </div>
+            <div>
+              <label for="ad_url">Ad Url</label>
+              <input type="url" id="ad_url" name="ad_url" value="<%= settings?.ad_url ||  ''  %>" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <input type="submit" value="Submit" />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function () {
+        window.settings = `<%- settings %>`;
+        console.log(settings);
+      });
+    </script>
+  </body>
+</html>
